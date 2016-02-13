@@ -1,23 +1,30 @@
 /*Gauven Roy Pascua 2013-22431 AB-1L*/
 
+//This function converts word based number from 0-1M into their respective integers
 function wordsToNum (word) {
 	
+	//case of 1M
 	if(word.trim() === "one million"){
 		return 1000000;
 	}
 
+	//case of 0
 	if(word.trim() === "zero"){
 		return 0;
 	}
 
+	//use to store the result
 	var num = 0;
 
+	//use as a temporary storage with hundred values (001 - 999)
 	var number = 0;
 
+	//split the given word into an array of string
 	var parser = word.trim().split(" ");
 
 	for (var i = 0; i < parser.length; i++) {
-
+		
+		//converts a word to a digit
 		switch(parser[i].trim()){
 			case "one":
 				number += 1;
@@ -109,6 +116,7 @@ function wordsToNum (word) {
 				break;
 		}
 	};
-
+	
+	//return result
 	return num + number;
 }
