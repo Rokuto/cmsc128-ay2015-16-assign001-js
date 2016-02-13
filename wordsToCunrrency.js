@@ -1,21 +1,29 @@
+/*Gauven Roy Pascua 2013-22431 AB-1L*/
+
+//This function converts a word based number into an integer with currency
 function wordsToCurrency (word, currency) {
 	
+	//case 1M
 	if(word.trim() === "one million"){
 		return currency + "1000000";
 	}
 
+	//case 0
 	if(word.trim() === "zero"){
 		return currency + "0";
 	}
 
+	//used to store the result
 	var num = 0;
 
+	//use for temorary storage
 	var number = 0;
 
+	//split the words into an array of word
 	var parser = word.trim().split(" ");
 
 	for (var i = 0; i < parser.length; i++) {
-
+		//convert word to its equivalent value
 		switch(parser[i].trim()){
 			case "one":
 				number += 1;
@@ -108,5 +116,6 @@ function wordsToCurrency (word, currency) {
 		}
 	};
 
+	//retrun the result
 	return currency + "" + toString(num + number);
 }
